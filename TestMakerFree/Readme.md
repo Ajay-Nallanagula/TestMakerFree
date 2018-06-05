@@ -50,3 +50,4 @@ https://medium.com/burak-tasci/angular-4-with-server-side-rendering-aka-angular-
 https://universal.angular.io/
 
 Client app cleanup :82
+test

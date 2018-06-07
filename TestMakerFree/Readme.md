@@ -51,3 +51,10 @@ https://universal.angular.io/
 
 Client app cleanup :82
 test
+
+The main reason for building a ViewModel instead of directly passing the Model entities is
+that it only represents the data that we want to use, and nothing else;
+Another advantage is the additional security it gives, since we can
+protect any field from being serialized and passed through the HTTP channel
+
+Adding other controllers pg 100

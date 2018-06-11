@@ -18,6 +18,43 @@ namespace TestMakerFree.Controllers
         {
             SampleQuizze = new List<QuizViewModel>();
         }
+
+        #region RESTful conventions methods
+        /// <summary>
+        /// GET: api/quiz/{}id
+        /// Retrieves the Quiz with the given {id}
+        /// </summary>
+        /// <param name="id">The ID of an existing Quiz</param>
+        /// <returns>the Quiz with the given {id}</returns>
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            // create a sample quiz to match the given request
+            var v = new QuizViewModel()
+            {
+                Id = id,
+                Title = String.Format("Sample quiz with id {0}", id),
+                Description = "Not a real quiz: it's just a sample!",
+                CreatedDate = DateTime.Now,
+                LastModifiedDate = DateTime.Now
+            };
+            // output the result in JSON format
+            return new JsonResult(
+            v,
+            new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            });
+        }
+        #endregion
+
+        #region Attribute-based routing methods
+        /// <summary>
+        /// GET: api/quiz/latest
+        /// Retrieves the {num} latest Quizzes
+        /// </summary>
+        /// <param name="num">the number of quizzes to retrieve</param>
+        /// <returns>the {num} latest Quizzes</returns>
         // GET: api/values
         [HttpGet("Latest/{num}")]
         public IActionResult Latest(int num = 10)
@@ -26,6 +63,7 @@ namespace TestMakerFree.Controllers
             var jsonSerialized = new JsonResult(SampleQuizze, new JsonSerializerSettings() { Formatting = Formatting.Indented });
             return jsonSerialized;
         }
+        #endregion
 
         // GET api/values/5
         [HttpGet("ByTitle/{num:int?}")]
@@ -61,20 +99,23 @@ namespace TestMakerFree.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]string value)
         {
+            throw new NotImplementedException();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]string value)
         {
+            throw new NotImplementedException();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }

@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/TestMakerFree/bower_components
+/TestMakerFree/wwwroot
+/TestMakerFree/ScaffoldingReadMe.txt
+/TestMakerFree/bundleconfig.json
+/TestMakerFree/bower.json
